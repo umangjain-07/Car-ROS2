@@ -32,9 +32,14 @@
     <!-- Differential Drive Controller Plugin -->
     <gazebo>
         <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+            <ros>
+                <namespace>/</namespace>
+                <remapping>cmd_vel:=cmd_vel</remapping>
+                <remapping>odom:=odom</remapping>
+              </ros>
             <update_rate>50</update_rate>
-            <left_joint>base_to_back_right_wheel_joint</left_joint>
-            <right_joint>base_to_back_left_wheel_joint</right_joint>
+            <left_joint>base_to_back_left_wheel_joint</left_joint>
+            <right_joint>base_to_back_right_wheel_joint</right_joint>
             <wheel_separation>0.4</wheel_separation>
             <wheel_diameter>0.2</wheel_diameter>
             <max_wheel_torque>20</max_wheel_torque>
@@ -46,6 +51,9 @@
             <odometry_topic>odom</odometry_topic>
             <odometry_frame>odom</odometry_frame>
             <robot_base_frame>base_footprint_link</robot_base_frame>
+            <pose_covariance_diagonal>0.0001 0.0001 0.0001 0.0 0.0 0.001</pose_covariance_diagonal>
+            <twist_covariance_diagonal>0.0001 0.0001 0.0001 0.0 0.0 0.001</twist_covariance_diagonal>
+
         </plugin>
     </gazebo>
 
