@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250908-0654-Experimental"
+	Name="Linux-TUF-F15"
+	Generator="ctest-3.22.1"
+	CompilerName="/usr/bin/g++"
+	CompilerVersion="11.4.0"
+	OSName="Linux"
+	Hostname="Linux-TUF-F15"
+	OSRelease="6.8.0-79-generic"
+	OSVersion="#79~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug 15 16:54:53 UTC 2"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="141"
+	ProcessorCacheSize="24576"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="0"
+	TotalPhysicalMemory="15729"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="4299.53"
+	>
+	<Testing>
+		<StartDateTime>Sep 08 12:24 IST</StartDateTime>
+		<StartTestTime>1757314448</StartTestTime>
+		<TestList/>
+		<EndDateTime>Sep 08 12:24 IST</EndDateTime>
+		<EndTestTime>1757314448</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

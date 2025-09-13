@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<robot name="my_car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <xacro:include filename="common_properties.urdf.xacro"/>
+    <xacro:include filename="gazebo_properties.urdf.xacro"/>
+    <xacro:property name="base_length" value="0.6"/>
+    <xacro:property name="base_width" value="0.4"/>
+    <xacro:property name="base_height" value="0.2"/>
+    <xacro:property name="wheel_radius" value="0.1"/>
+    <xacro:property name="wheel_length" value="0.1"/>
+
+    <xacro:macro name="wheel_link" params="where prefix">
+        <link name="${where}_${prefix}_wheel_link">
+            <visual>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+                <material name="black"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+            </collision>
+            <xacro:wheel_inertia r="${wheel_radius}" h="${wheel_length}" m="5.0" xyz="0 0 0" rpy="${pi/2} 0 0" />
+        </link>
+    </xacro:macro>
+
+    <link name="base_footprint_link"/>
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}"/>
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}"/>
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
+        </collision>
+        <xacro:box_inertia l="${base_length}" w="${base_width}" h="${base_height}" m="35" xyz="0 0 0.1" rpy="0 0 0"/>
+    </link>
+
+    <link name="lidar_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.2"/>
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.1" length="0.2"/>
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
+        </collision>
+        <xacro:wheel_inertia r="0.1" h="0.2" m="4.0" xyz="0 0 0.1" rpy="0 0 0" />
+    </link>
+
+    
+    <xacro:wheel_link where="back" prefix="left"/>
+    <xacro:wheel_link where="back" prefix="right"/>
+
+    <link name="front_wheel_link">
+        <visual>
+            <geometry>
+                <sphere radius="0.05"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.05"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
+        <xacro:sphere_inertia m="2.0" r="0.05" xyz="0 0 0" rpy="0 0 0" />
+    </link>
+
+    <!-- Include camera -->
+    <xacro:include filename="camera.urdf.xacro"/>
+
+    <!-- JOINTS -->
+    <joint name="base_footprint_to_base" type="fixed">
+        <parent link="base_footprint_link"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 ${wheel_radius}" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="base_to_lidar_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="lidar_link"/>
+        <origin xyz="0 0 0.2" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Back wheels - these are the driving wheels -->
+    <joint name="base_to_back_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="back_right_wheel_link"/>
+        <origin xyz="-0.15 -${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    
+    <joint name="base_to_back_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="back_left_wheel_link"/>
+        <origin xyz="-0.15 ${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- Front caster wheel -->
+    <joint name="base_to_front_wheel_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="front_wheel_link"/>
+        <origin xyz="${base_length/2 - 0.05} 0 -${wheel_radius/2}" rpy="0 0 0"/>
+    </joint>
+
+</robot>

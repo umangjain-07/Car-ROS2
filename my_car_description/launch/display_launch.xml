@@ -1,0 +1,16 @@
+<launch>
+      <!-- Robot State Publisher -->
+      <node pkg="robot_state_publisher"
+            exec="robot_state_publisher"
+            name="robot_state_publisher"
+            output="screen">
+          <param name="robot_description" value="$(command cat /home/umang/ros2_ws/src/my_car_description/urdf/my_car.urdf.xacro)"/>
+      </node>
+  
+      <!-- Joint State Publisher GUI -->
+      <node pkg="joint_state_publisher_gui"
+            exec="joint_state_publisher_gui"
+            name="joint_state_publisher_gui"
+            output="screen"/>
+  </launch>
+        

@@ -1,0 +1,9 @@
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/uninstall.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/my_car_description_uninstall.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/test.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/edit_cache.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/rebuild_cache.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/list_install_components.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/install.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/install/local.dir
+/home/umang/ros2_ws/src/my_car_description/build/CMakeFiles/install/strip.dir
