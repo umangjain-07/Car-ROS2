@@ -1,0 +1,76 @@
+# ===========================
+# Nav2 Params for your Bot
+# ===========================
+
+# ----- Controller Server -----
+controller_server:
+  ros__parameters:
+    use_sim_time: true
+    controller_frequency: 20.0
+    min_vel_x: 0.0
+    max_vel_x: 0.4       # forward speed
+    min_vel_y: 0.0
+    max_vel_y: 0.0
+    max_vel_theta: 1.0   # turning speed
+    acc_lim_x: 2.0
+    acc_lim_y: 0.0
+    acc_lim_theta: 2.5
+    robot_radius: 0.18
+    goal_tolerance:
+      xy_goal_tolerance: 0.05
+      yaw_goal_tolerance: 0.05
+      xy_goal_tolerance_sum: 0.1
+    controller_plugins: ["FollowPath"]
+    FollowPath:
+      plugin: "dwb_core::DWBLocalPlanner"
+      min_vel_x: 0.0
+      max_vel_x: 0.4
+      max_vel_theta: 1.0
+      acc_lim_x: 2.0
+      acc_lim_theta: 2.5
+
+# ----- Planner Server -----
+planner_server:
+  ros__parameters:
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+
+# ----- Behavior Tree Navigator -----
+bt_navigator:
+  ros__parameters:
+    expected_bt_period: 10
+    use_sim_time: true
+
+# ----- Recovery Server -----
+recoveries_server:
+  ros__parameters:
+    expected_frequency: 1.0
+    recovery_behaviors: ["spin", "back_up"]
+
+# ----- Global Costmap -----
+global_costmap:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: map
+    robot_base_frame: base_footprint_link
+    update_frequency: 1.0
+    static_map: true
+
+# ----- Local Costmap -----
+local_costmap:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: odom
+    robot_base_frame: base_footprint_link
+    update_frequency: 5.0
+    rolling_window: true
+    width: 4.0
+    height: 4.0
+    resolution: 0.05
+
+# ----- Recovery Behaviors -----
+recoveries_server:
+  ros__parameters:
+    recovery_behaviors: ["spin", "back_up"]
+  

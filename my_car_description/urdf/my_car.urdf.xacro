@@ -67,6 +67,8 @@
     
     <xacro:wheel_link where="back" prefix="left"/>
     <xacro:wheel_link where="back" prefix="right"/>
+    <xacro:wheel_link where="front" prefix="left"/>
+    <xacro:wheel_link where="front" prefix="right"/>
 
     <link name="front_wheel_link">
         <visual>
@@ -113,6 +115,20 @@
         <parent link="base_link"/>
         <child link="back_left_wheel_link"/>
         <origin xyz="-0.15 ${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="base_to_front_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_right_wheel_link"/>
+        <origin xyz="0.15 -${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    
+    <joint name="base_to_front_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_left_wheel_link"/>
+        <origin xyz="0.15 ${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
 

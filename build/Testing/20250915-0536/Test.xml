@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="(empty)"
-	BuildStamp="20250913-0508-Experimental"
+	BuildStamp="20250915-0536-Experimental"
 	Name="Linux-TUF-F15"
 	Generator="ctest-3.22.1"
 	CompilerName="/usr/bin/g++"
@@ -21,14 +21,14 @@
 	TotalVirtualMemory="0"
 	TotalPhysicalMemory="15729"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="800"
+	ProcessorClockFrequency="4270.89"
 	>
 	<Testing>
-		<StartDateTime>Sep 13 19:45 IST</StartDateTime>
-		<StartTestTime>1757772903</StartTestTime>
+		<StartDateTime>Sep 15 18:18 IST</StartDateTime>
+		<StartTestTime>1757940482</StartTestTime>
 		<TestList/>
-		<EndDateTime>Sep 13 19:45 IST</EndDateTime>
-		<EndTestTime>1757772903</EndTestTime>
+		<EndDateTime>Sep 15 18:18 IST</EndDateTime>
+		<EndTestTime>1757940482</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

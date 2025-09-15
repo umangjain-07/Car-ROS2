@@ -11,11 +11,15 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
     # Path to your saved map
-    map_file = '/home/umang/ros2_ws/src/car/my_car_description/maps/car_map.yaml'
+    map_file = '/home/umang/ros2_ws/src/car/my_car_description/maps/my_car_map.yaml'
 
-    # Path to Nav2 bringup's navigation launch
+    # Path to Nav2 bringup
     nav2_bringup_dir = get_package_share_directory('nav2_bringup')
     nav2_launch_file = os.path.join(nav2_bringup_dir, 'launch', 'navigation_launch.py')
+
+    # Path to your custom nav2 params
+    description_pkg = get_package_share_directory('my_car_description')
+    nav2_params = os.path.join(description_pkg, 'config', 'nav2_params.yaml')
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -41,9 +45,12 @@ def generate_launch_description():
             }],
         ),
 
-        # Include Nav2 bringup navigation launch
+        # Include Nav2 navigation with your custom params
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(nav2_launch_file),
-            launch_arguments={'use_sim_time': use_sim_time}.items(),
+            launch_arguments={
+                'use_sim_time': use_sim_time,
+                # 'params_file': nav2_params
+            }.items(),
         ),
     ])
