@@ -37,7 +37,7 @@ def generate_launch_description():
             parameters=[{
                 'use_sim_time': use_sim_time,
                 'odom_frame': 'odom',
-                'base_frame': 'base_footprint_link',
+                'base_frame': 'base_link',
                 'map_frame': 'map',
                 'scan_topic': '/scan',
                 'mode': 'localization',
@@ -50,7 +50,7 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(nav2_launch_file),
             launch_arguments={
                 'use_sim_time': use_sim_time,
-                # 'params_file': nav2_params
+                'params_file': nav2_params
             }.items(),
         ),
     ])

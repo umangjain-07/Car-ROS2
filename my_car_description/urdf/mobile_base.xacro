@@ -25,9 +25,9 @@
         </link>
     </xacro:macro>
 
-    <link name="base_footprint_link"/>
+    <link name="base_link"/>
 
-    <link name="base_link">
+    <link name="main_link">
         <visual>
             <geometry>
                 <box size="${base_length} ${base_width} ${base_height}"/>
@@ -70,35 +70,35 @@
 
     <!-- JOINTS -->
     <joint name="base_footprint_to_base" type="fixed">
-        <parent link="base_footprint_link"/>
-        <child link="base_link"/>
+        <parent link="base_link"/>
+        <child link="main_link"/>
         <origin xyz="0 0 ${wheel_radius}" rpy="0 0 0"/>
     </joint>
 
     <!-- Back wheels - these are the driving wheels -->
     <joint name="base_to_back_right_wheel_joint" type="continuous">
-        <parent link="base_link"/>
+        <parent link="main_link"/>
         <child link="back_right_wheel_link"/>
         <origin xyz="-0.15 -${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
     
     <joint name="base_to_back_left_wheel_joint" type="continuous">
-        <parent link="base_link"/>
+        <parent link="main_link"/>
         <child link="back_left_wheel_link"/>
         <origin xyz="-0.15 ${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
 
     <joint name="base_to_front_right_wheel_joint" type="continuous">
-        <parent link="base_link"/>
+        <parent link="main_link"/>
         <child link="front_right_wheel_link"/>
         <origin xyz="0.15 -${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
     
     <joint name="base_to_front_left_wheel_joint" type="continuous">
-        <parent link="base_link"/>
+        <parent link="main_link"/>
         <child link="front_left_wheel_link"/>
         <origin xyz="0.15 ${(base_width/2) + (wheel_length/2)} 0" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
@@ -106,7 +106,7 @@
 
     <!-- Front caster wheel -->
     <joint name="base_to_front_wheel_joint" type="fixed">
-        <parent link="base_link"/>
+        <parent link="main_link"/>
         <child link="front_wheel_link"/>
         <origin xyz="${base_length/2 - 0.05} 0 -${wheel_radius/2}" rpy="0 0 0"/>
     </joint>

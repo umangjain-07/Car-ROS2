@@ -6,5 +6,6 @@
     <xacro:include filename="mobile_base.xacro"/>
     <xacro:include filename="lidar.xacro"/>
     <xacro:include filename="camera.urdf.xacro"/>
+    <xacro:include filename="my_car_control.urdf.xacro"/>
 
 </robot>

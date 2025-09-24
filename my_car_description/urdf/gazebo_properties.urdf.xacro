@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- Gazebo materials for visual links -->
-    <gazebo reference="base_link">
+    <gazebo reference="main_link">
         <material>Gazebo/Blue</material>
     </gazebo>
 
@@ -50,7 +50,7 @@
             <publish_wheel_tf>true</publish_wheel_tf>
             <odometry_topic>odom</odometry_topic>
             <odometry_frame>odom</odometry_frame>
-            <robot_base_frame>base_footprint_link</robot_base_frame>
+            <robot_base_frame>base_link</robot_base_frame>
             <pose_covariance_diagonal>0.0001 0.0001 0.0001 0.0 0.0 0.001</pose_covariance_diagonal>
             <twist_covariance_diagonal>0.0001 0.0001 0.0001 0.0 0.0 0.001</twist_covariance_diagonal>
 
@@ -76,7 +76,7 @@
             <publish_wheel_tf>true</publish_wheel_tf>
             <odometry_topic>odom</odometry_topic>
             <odometry_frame>odom</odometry_frame>
-            <robot_base_frame>base_footprint_link</robot_base_frame>
+            <robot_base_frame>base_link</robot_base_frame>
             <pose_covariance_diagonal>0.0001 0.0001 0.0001 0.0 0.0 0.001</pose_covariance_diagonal>
             <twist_covariance_diagonal>0.0001 0.0001 0.0001 0.0 0.0 0.001</twist_covariance_diagonal>
 
