@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- Gazebo materials for visual links -->
     <gazebo reference="main_link">
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/Orange</material>
     </gazebo>
 
     <gazebo reference="back_right_wheel_link">

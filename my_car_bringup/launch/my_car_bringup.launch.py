@@ -12,6 +12,7 @@ def generate_launch_description():
     gazebo_launch = os.path.join(description_pkg, "launch", "my_car_gazebo.launch.py")
     display_launch = os.path.join(description_pkg, "launch", "display.launch.py")
     slam_launch = os.path.join(description_pkg, "launch" , "my_car_slam.launch.py")
+    screen_launch = os.path.join(description_pkg,"launch","extra_feature.launch.py")
 
     use_sim_time = LaunchConfiguration("use_sim_time")
 
@@ -42,5 +43,9 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(slam_launch),
             launch_arguments={"use_sim_time": use_sim_time}.items(),
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(screen_launch),
         ),
     ])

@@ -7,9 +7,9 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory("my_car_description")
+    description_dir = get_package_share_directory("my_car_description")
 
-    rviz_config_file = os.path.join(pkg_share, "rviz", "my_car.rviz")
+    rviz_config_file = os.path.join(description_dir, "rviz", "my_car.rviz")
 
     return LaunchDescription([
         DeclareLaunchArgument(

@@ -19,7 +19,8 @@ def generate_launch_description():
 
     # Path to your custom nav2 params
     description_pkg = get_package_share_directory('my_car_description')
-    nav2_params = os.path.join(description_pkg, 'config', 'nav2_params.yaml')
+    # nav2_params = os.path.join(description_pkg, 'config', 'nav2_params.yaml')
+    nav2_params = os.path.join(nav2_bringup_dir, 'params', 'nav2_params.yaml')
 
     return LaunchDescription([
         DeclareLaunchArgument(
